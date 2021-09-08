@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parental_Browser.Scripts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,12 @@ namespace Parental_Browser
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Parental p = new Parental();
+            p.RestringeSitio("http://misitio.com");
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form1());
+
         }
     }
 }
