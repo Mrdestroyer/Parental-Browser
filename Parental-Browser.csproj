@@ -62,7 +62,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\ConfigCreator.cs" />
     <Compile Include="Scripts\Parental.cs" />
+    <Compile Include="Scripts\ParentalController.cs" />
     <Compile Include="Scripts\Perfil.cs" />
+    <Compile Include="Scripts\Validaciones.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,7 +78,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.manifest" />
-    <None Include="Scripts\Domains.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

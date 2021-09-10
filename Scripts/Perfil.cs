@@ -8,10 +8,11 @@ namespace Parental_Browser.Scripts
 {
     class Perfil
     {
-        public bool indefinido { get; set; }
-        public String url { get; set; }
-        public String[] dias { get; set; }
-        public String horaInicio { get; set; }
-        public String horaFin { get; set; }
+        public bool EstaActivo { get; set; }
+        public bool EsIndefinido { get; set; }
+        public String Url { get; set; }
+        public int[] Dias { get; set; }
+        public int HoraInicio { get; set; }
+        public int HoraFin { get; set; }
     }
 }
