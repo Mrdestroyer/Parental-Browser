@@ -34,15 +34,16 @@ namespace Parental_Browser
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelHome = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.listaDias = new System.Windows.Forms.CheckedListBox();
+            this.btn_agregar = new System.Windows.Forms.Button();
+            this.InputHoraFin = new System.Windows.Forms.NumericUpDown();
+            this.inputHoraInit = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkIndefinido = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.input_url = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,12 +51,11 @@ namespace Parental_Browser
             this.DIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PanelHome.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InputHoraFin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputHoraInit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,16 +87,16 @@ namespace Parental_Browser
             // 
             // PanelHome
             // 
-            this.PanelHome.Controls.Add(this.checkedListBox1);
-            this.PanelHome.Controls.Add(this.button1);
-            this.PanelHome.Controls.Add(this.numericUpDown2);
-            this.PanelHome.Controls.Add(this.numericUpDown1);
+            this.PanelHome.Controls.Add(this.listaDias);
+            this.PanelHome.Controls.Add(this.btn_agregar);
+            this.PanelHome.Controls.Add(this.InputHoraFin);
+            this.PanelHome.Controls.Add(this.inputHoraInit);
             this.PanelHome.Controls.Add(this.label6);
             this.PanelHome.Controls.Add(this.label5);
             this.PanelHome.Controls.Add(this.label4);
-            this.PanelHome.Controls.Add(this.checkBox1);
+            this.PanelHome.Controls.Add(this.checkIndefinido);
             this.PanelHome.Controls.Add(this.label3);
-            this.PanelHome.Controls.Add(this.textBox1);
+            this.PanelHome.Controls.Add(this.input_url);
             this.PanelHome.Controls.Add(this.label2);
             this.PanelHome.Controls.Add(this.dataGridView1);
             this.PanelHome.Location = new System.Drawing.Point(237, 13);
@@ -104,31 +104,62 @@ namespace Parental_Browser
             this.PanelHome.Size = new System.Drawing.Size(785, 507);
             this.PanelHome.TabIndex = 1;
             // 
-            // button1
+            // listaDias
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(359, 144);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 41);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.listaDias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(17)))), ((int)(((byte)(34)))));
+            this.listaDias.CheckOnClick = true;
+            this.listaDias.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listaDias.ForeColor = System.Drawing.Color.White;
+            this.listaDias.FormattingEnabled = true;
+            this.listaDias.Items.AddRange(new object[] {
+            "Lunes",
+            "Martes",
+            "Miercoles",
+            "Jueves",
+            "Viernes",
+            "Sabado",
+            "Domingo"});
+            this.listaDias.Location = new System.Drawing.Point(586, 13);
+            this.listaDias.Name = "listaDias";
+            this.listaDias.Size = new System.Drawing.Size(196, 172);
+            this.listaDias.TabIndex = 18;
             // 
-            // numericUpDown2
+            // btn_agregar
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(234, 108);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(69, 29);
-            this.numericUpDown2.TabIndex = 16;
+            this.btn_agregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar.Location = new System.Drawing.Point(359, 144);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(110, 41);
+            this.btn_agregar.TabIndex = 17;
+            this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // numericUpDown1
+            // InputHoraFin
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(95, 108);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(69, 29);
-            this.numericUpDown1.TabIndex = 15;
+            this.InputHoraFin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InputHoraFin.Location = new System.Drawing.Point(234, 108);
+            this.InputHoraFin.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.InputHoraFin.Name = "InputHoraFin";
+            this.InputHoraFin.Size = new System.Drawing.Size(69, 29);
+            this.InputHoraFin.TabIndex = 16;
+            // 
+            // inputHoraInit
+            // 
+            this.inputHoraInit.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputHoraInit.Location = new System.Drawing.Point(95, 108);
+            this.inputHoraInit.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.inputHoraInit.Name = "inputHoraInit";
+            this.inputHoraInit.Size = new System.Drawing.Size(69, 29);
+            this.inputHoraInit.TabIndex = 15;
             // 
             // label6
             // 
@@ -160,13 +191,13 @@ namespace Parental_Browser
             this.label4.TabIndex = 5;
             this.label4.Text = "Dias:";
             // 
-            // checkBox1
+            // checkIndefinido
             // 
-            this.checkBox1.Location = new System.Drawing.Point(124, 63);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(104, 23);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkIndefinido.Location = new System.Drawing.Point(124, 63);
+            this.checkIndefinido.Name = "checkIndefinido";
+            this.checkIndefinido.Size = new System.Drawing.Size(104, 23);
+            this.checkIndefinido.TabIndex = 4;
+            this.checkIndefinido.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -178,14 +209,14 @@ namespace Parental_Browser
             this.label3.TabIndex = 3;
             this.label3.Text = "Indefinido:";
             // 
-            // textBox1
+            // input_url
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(124, 18);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(345, 23);
-            this.textBox1.TabIndex = 2;
+            this.input_url.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.input_url.Location = new System.Drawing.Point(124, 18);
+            this.input_url.Multiline = true;
+            this.input_url.Name = "input_url";
+            this.input_url.Size = new System.Drawing.Size(345, 23);
+            this.input_url.TabIndex = 2;
             // 
             // label2
             // 
@@ -246,26 +277,6 @@ namespace Parental_Browser
             this.HoraFin.Name = "HoraFin";
             this.HoraFin.ReadOnly = true;
             // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(17)))), ((int)(((byte)(34)))));
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.ForeColor = System.Drawing.Color.White;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Lunes",
-            "Martes",
-            "Miercoles",
-            "Jueves",
-            "Viernes",
-            "Sabado",
-            "Domingo"});
-            this.checkedListBox1.Location = new System.Drawing.Point(586, 13);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(196, 172);
-            this.checkedListBox1.TabIndex = 18;
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,8 +291,8 @@ namespace Parental_Browser
             this.panel2.ResumeLayout(false);
             this.PanelHome.ResumeLayout(false);
             this.PanelHome.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InputHoraFin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputHoraInit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -296,20 +307,20 @@ namespace Parental_Browser
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn URL;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox input_url;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn INDEFINIDO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIAS;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraFin;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button btn_agregar;
+        private System.Windows.Forms.NumericUpDown InputHoraFin;
+        private System.Windows.Forms.NumericUpDown inputHoraInit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckBox checkIndefinido;
+        private System.Windows.Forms.CheckedListBox listaDias;
     }
 }
 

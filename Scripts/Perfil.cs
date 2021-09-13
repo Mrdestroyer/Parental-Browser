@@ -14,5 +14,20 @@ namespace Parental_Browser.Scripts
         public int[] Dias { get; set; }
         public int HoraInicio { get; set; }
         public int HoraFin { get; set; }
+
+        public Perfil() { }
+        public Perfil(String url, int[] dias, int HoraInicio, int HoraFin)
+        {
+            this.Url = url;
+            this.Dias = dias;
+            this.HoraInicio = HoraInicio;
+            this.HoraFin = HoraFin;
+            this.EsIndefinido = false;
+        }
+        public Perfil(String url)
+        {
+            this.Url = url;
+            this.EsIndefinido = true;
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Parental_Browser.Scripts
 {
@@ -13,37 +14,36 @@ namespace Parental_Browser.Scripts
     {
         public const String HOST_FILE = @"C:\Windows\System32\drivers\etc\hosts";
         private ConfigCreator configuracion;
-        private ParentalController PController;
         public Parental()
         {
             this.configuracion = new ConfigCreator();
-            this.PController = new ParentalController();
         }
         /**
          * AGREA UN PERFIL AL ARCHIVO DE PERFILES Y PONE EN FUNCION EL PERFIL SI ESTE APLICA
          */
         public void RestringeSitio(Perfil regis)
         {
-            if(this.ExisteRegistro(regis.Url))
+            if (this.ExisteRegistro(regis.Url))
             {
                 return;
             }
             try
             {
+         
                 Validaciones.ValidaPerfil(regis);
+                
                 List<Perfil> listPerfiles = this.GetListaPerfiles();
 
                 listPerfiles.Add(regis);
-
+                this.AgregaEnHost(regis.Url);
                 this.ReemplazaPerfiles(listPerfiles);
-
+                
             }catch(ArgumentOutOfRangeException e)
             {
                 Console.WriteLine(e.Message);
             }
 
         }
-
         /**
          * ACTIVA LA RESTRICCION DE UN SITIO QUE YA SE ENCUENTRA EN EL ARCHIVO DE CONFIGURACION
          * PASANDO ESTE METODO LA URL AL ARCHIVO HOST
@@ -113,7 +113,7 @@ namespace Parental_Browser.Scripts
         //ACTUALIZA TODO EL ARCHIVO DE CONFIGURACION POR UNA LISTA DE PERFILES
         private void ReemplazaPerfiles(List<Perfil> perfiles)
         {
-            foreach(Perfil per in perfiles)
+            foreach (Perfil per in perfiles)
             {
                 Validaciones.ValidaPerfil(per);
             }
@@ -141,6 +141,7 @@ namespace Parental_Browser.Scripts
 
         public List<Perfil> GetListaPerfiles()
         {
+            
             StreamReader r = new StreamReader(this.configuracion.rutaPerfiles);
             String texto = r.ReadToEnd();
             r.Close();
