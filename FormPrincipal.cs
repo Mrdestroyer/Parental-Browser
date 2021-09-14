@@ -22,6 +22,23 @@ namespace Parental_Browser
             
             InitializeComponent();
             this.parental = new Parental();
+            this.setRegistrosEnTabla();
+        }
+        public void setRegistrosEnTabla()
+        {
+            List<Perfil> perfiles = this.parental.GetListaPerfiles();
+            
+            for(int i = 0; i < perfiles.Count; i++)
+            {
+                Perfil actu = perfiles[i];
+                String dias = "";
+                if (!actu.EsIndefinido)
+                {
+                    dias = string.Join(", ", this.parental.GetNombreDiasDeEnteros(actu.Dias));
+                }
+                this.tablaData.Rows.Add(actu.Url, actu.EsIndefinido, dias, actu.HoraInicio, actu.HoraFin);
+            }
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -60,6 +77,7 @@ namespace Parental_Browser
 
                     Perfil perfil = new Perfil(url, dias, horaInicio, horaFin);
                     this.parental.RestringeSitio(perfil);
+                    this.setRegistrosEnTabla();
                 }
                 else
                 {
@@ -69,6 +87,11 @@ namespace Parental_Browser
 
             }
             
+
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
 
         }
     }

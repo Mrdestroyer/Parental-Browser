@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Parental_Browser.Scripts
 {
@@ -171,6 +172,21 @@ namespace Parental_Browser.Scripts
             {
                 return false;
             }
+        }
+
+        //OBTIENE LOS NOMBRES DE LOS DIAS EN PARTIENDO DE NUMEROS ENTEROS, DONDE LUNES ES =1 Y DOMINGO = 7
+        public String[] GetNombreDiasDeEnteros(int[] dias)
+        {
+            String[] diasStr = new string[dias.Length];
+            CultureInfo espa = new CultureInfo("Es-Es");
+
+            for(int i = 0; i < dias.Length; i++)
+            {
+                String diaTemp = espa.DateTimeFormat.DayNames[(int)dias[i]];
+                diasStr[i] = diaTemp;
+            }
+
+            return diasStr;
         }
 
     }

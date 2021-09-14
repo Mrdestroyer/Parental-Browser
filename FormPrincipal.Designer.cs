@@ -45,7 +45,7 @@ namespace Parental_Browser
             this.label3 = new System.Windows.Forms.Label();
             this.input_url = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tablaData = new System.Windows.Forms.DataGridView();
             this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.INDEFINIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,7 @@ namespace Parental_Browser
             this.PanelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputHoraFin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputHoraInit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,7 +98,7 @@ namespace Parental_Browser
             this.PanelHome.Controls.Add(this.label3);
             this.PanelHome.Controls.Add(this.input_url);
             this.PanelHome.Controls.Add(this.label2);
-            this.PanelHome.Controls.Add(this.dataGridView1);
+            this.PanelHome.Controls.Add(this.tablaData);
             this.PanelHome.Location = new System.Drawing.Point(237, 13);
             this.PanelHome.Name = "PanelHome";
             this.PanelHome.Size = new System.Drawing.Size(785, 507);
@@ -229,23 +229,23 @@ namespace Parental_Browser
             this.label2.Text = "URL";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // dataGridView1
+            // tablaData
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaData.AllowUserToAddRows = false;
+            this.tablaData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tablaData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.URL,
             this.INDEFINIDO,
             this.DIAS,
             this.HoraInicio,
             this.HoraFin});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 191);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(778, 270);
-            this.dataGridView1.TabIndex = 0;
+            this.tablaData.Location = new System.Drawing.Point(4, 191);
+            this.tablaData.Name = "tablaData";
+            this.tablaData.ReadOnly = true;
+            this.tablaData.Size = new System.Drawing.Size(778, 270);
+            this.tablaData.TabIndex = 0;
             // 
             // URL
             // 
@@ -287,13 +287,14 @@ namespace Parental_Browser
             this.Controls.Add(this.panel1);
             this.Name = "FormPrincipal";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.PanelHome.ResumeLayout(false);
             this.PanelHome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputHoraFin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputHoraInit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -304,7 +305,7 @@ namespace Parental_Browser
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel PanelHome;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tablaData;
         private System.Windows.Forms.DataGridViewTextBoxColumn URL;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox input_url;
